@@ -94,7 +94,26 @@ An Object begin with {and ends with}. The object consist of comma separated key-
   "firstName": "lei",
   "children": [
     { "firstName": "Vera", "age": 5 },
-    { "firstName": "John", "age": 7 ,"toy":["car","chair"]}
+    { "firstName": "John", "age": 7, "toy": ["car", "chair"] }
   ]
+}
+```
+
+```json
+{
+  "key1": "value1",
+  "key2": "value2",
+  "key3": [1, 2, 3],
+  "key": {
+    "a": 1,
+    "b": "text",
+    "c": [7, 8, 9],
+    "d": {
+      "x": true,
+      "y": false,
+      "z": null,
+      "w": 2
+    }
+  }
 }
 ```
