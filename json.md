@@ -76,8 +76,25 @@ Array begn with [ and ends with ]. Values in array are separated by a comma.
 
 ```
 
+### Object
 
+An Object begin with {and ends with}. The object consist of comma separated key-value pairs. The key and value are separated by colon:
 
-### Object 
+### Example
 
-An Object begin with {and ends with}
+```json
+{
+  "firstName": "tuan",
+  "lastName": "River"
+}
+```
+
+```json
+{
+  "firstName": "lei",
+  "children": [
+    { "firstName": "Vera", "age": 5 },
+    { "firstName": "John", "age": 7 ,"toy":["car","chair"]}
+  ]
+}
+```
