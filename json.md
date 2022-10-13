@@ -75,3 +75,9 @@ Array begn with [ and ends with ]. Values in array are separated by a comma.
     ]
 
 ```
+
+
+
+### Object 
+
+An Object begin with {and ends with}
