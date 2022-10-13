@@ -45,3 +45,5 @@ const person2 = {
 
 console.log("##################  new person 2 ####################")
 console.log(Object.values(data))
+
+
