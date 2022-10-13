@@ -1,0 +1,27 @@
+[
+    {
+        "model": "A",
+        "license": "123",
+        "year": 1991
+    },
+    {
+        "model": "b",
+        "license": "456",
+        "year": 1943
+    },
+    {
+        "model": "C",
+        "license": "989",
+        "year": 1232
+    },
+    {
+        "model": "D",
+        "license": "4353",
+        "year": 3002
+    },
+    {
+        "model": "C",
+        "license": "888",
+        "year": 2000
+    }
+]
