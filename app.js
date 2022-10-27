@@ -1,20 +1,22 @@
 'use strict'
 require('dotenv').config()
+const { json } = require('express')
 const http = require('http')
 const port = process.env.PORT || 4000
 const host = process.env.HOST || 'localhost'
 
-const server = http.createServer((req, res) => {
-    // 1. console request header vs url
-    console.log( req.headers)
-    console.log('request url :' + req.url)
-    // 2. show the status code 
-    res.writeHead(200)
-    // res.status(200).write('tuan')
-    // 3. send data 
-    res.end('hello')
-
+http.createServer((req, res) => {
+    // destructed from URL
+    const { pathname, search, searchParams, host } = new URL(`http://${req.headers.host}${req.url}`)
+    // console it
+    console.log(`pathname: ${pathname} search: ${search} searchparam: ${searchParams}`)
+    // set status vs send data to browser.
+    res.writeHead(200, {
+        "Content-Type": 'text/json; charset = utf-8'
+    })
+    // our purpose is to analys each elemnent in http-request: 
+    res.end(JSON.stringify({ pathname, search, searchParams, 'header': req.headers, 'url': req.url, host }))
 })
-server.listen(port, host, () => {
-    console.log('listening to port ' + port)
-})
+    .listen(port, host, () => {
+        console.log('listening to port ' + port)
+    })
