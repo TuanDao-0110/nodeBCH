@@ -13,7 +13,7 @@ const getAllModel = () => {
 const getCar = (key, value) => {
     let newArr =[]
     for (const car of carData) {
-        console.log(car[key])
+        // console.log(car[key])
         if (car[key].toLowerCase() === value.toLowerCase()) {
         
             newArr.push(car)
