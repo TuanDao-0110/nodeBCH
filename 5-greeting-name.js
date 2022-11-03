@@ -21,7 +21,7 @@ http.createServer((req, res) => {
     if (pathname === '/greetings') {
         msg = 'greeting'
     } else if (pathname === '/hi') {
-        msg = 'Hi'
+        msg = `hi`
 
     } else {
 

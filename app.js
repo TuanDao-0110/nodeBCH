@@ -1,7 +1,6 @@
 'use strict'
 require('dotenv').config()
 const { getAllCar, getAllModel, getCar } = require('./carTest')
-const { chownSync } = require('fs')
 const http = require('http')
 const port = process.env.PORT || 4000
 const host = process.env.HOST || 'localhost'
@@ -9,16 +8,16 @@ const host = process.env.HOST || 'localhost'
 http.createServer((req, res) => {
     console.log(`req.url: ${req.url} header: ${req.headers.host}`)
     const newUrl = new URL(`http://${req.headers.host}${req.url}`)
-    const { search, searchParams, pathname } = newUrl
+    const { search, searchParams, pathname, } = newUrl
     // check our params
     res.writeHead(200, {
-        "Content-type": "text/html ; charset = utf-8"
+        "Content-type": "application/json ; charset = utf-8"
     })
 
     // 1. get all car 
     if (pathname === '/car') {
         let newArr = getAllCar()
-        return res.end(JSON.stringify({ msg: 'allcar' }))
+        return res.end(JSON.stringify({ msg: 'succeed', data: newArr }))
     }
 
     // console.log(searchParams.get('licence'))
