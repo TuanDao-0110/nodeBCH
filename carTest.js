@@ -11,12 +11,21 @@ const getAllModel = () => {
 }
 
 const getCar = (key, value) => {
-    let newArr =[]
+    let newArr = []
     for (const car of carData) {
-        // console.log(car[key])
-        if (car[key].toLowerCase() === value.toLowerCase()) {
-        
-            newArr.push(car)
+        if (key !== 'year') {
+            
+            console.log('car key ' +key + 'value: ' + value)
+            if (car[key].toLowerCase() === value.toLowerCase()) {
+
+                newArr.push(car)
+            }
+        } else {
+
+            if (car[key] === value) {
+
+                newArr.push(car)
+            }
         }
     }
 
@@ -34,9 +43,9 @@ const getAllCar = () => {
 
     }
 
-    return newArr
+    return carData
 }
 
 
 
-module.exports = {getAllCar,getAllModel,getCar}
+module.exports = { getAllCar, getAllModel, getCar }
