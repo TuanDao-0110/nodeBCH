@@ -28,10 +28,10 @@ http://localhost:3000/search/byYear?year=11818
 
 ### 2nd search version
 
-### search by licence vs yeare
+### search by key vs value
 
 ```
-http://localhost:3000/search?licence=&year=42
+http://localhost:3000/search?key=year&value=1991
 
 ```
 
