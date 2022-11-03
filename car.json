@@ -23,5 +23,15 @@
         "model": "C",
         "license": "888",
         "year": 2000
+    },
+    {
+        "model": "E",
+        "license": "888",
+        "year": 2000
+    },
+    {
+        "model": "D",
+        "license": "888",
+        "year": 2000
     }
 ]

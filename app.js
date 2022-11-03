@@ -16,13 +16,12 @@ http.createServer((req, res) => {
     })
 
     if (pathname === '/') {
-        res.end('welcome cars systerm')
+     return   res.end('welcome cars systerm')
     }
     // 1. get all car 
     if (pathname === '/car') {
         let newArr = getAllCar()
         return res.end(JSON.stringify({ msg: 'succeed', data: newArr }))
-
     }
 
     // console.log(searchParams.get('licence'))
