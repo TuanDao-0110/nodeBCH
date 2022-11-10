@@ -1,0 +1,25 @@
+.hidden {
+    display: none;
+}
+h1 {
+    color: blue;
+}
+
+label {
+    font-weight: bold;
+}
+
+main {
+    display: grid;
+    justify-items: center;
+}
+
+section {
+    margin-top: 1rem;
+    padding: 1em;
+}
+
+table {
+    border: 1px blue dotted;
+    border-collapse: collapse;
+}
