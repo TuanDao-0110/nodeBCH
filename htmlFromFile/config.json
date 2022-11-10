@@ -1,0 +1,5 @@
+{
+    "port" : 8080,
+    "host" : "localhost",
+    "basedirectory" : "home.html"
+}
