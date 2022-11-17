@@ -1,20 +1,21 @@
 'use strict'
 
 const fs = require('fs').promises
-const { json } = require('express')
 const path = require('path')
 
 const MIMETYPES = require('./mimetypes.json')
 
-const read = (filePath) => {
+const read = async (filePath) => {
     const extension = path.extname(filePath).toLowerCase()
     // octet-stream is wrong
     const mime = MIMETYPES[extension] || { "type": "application/octet-stream", "encoding": "binary" }
 
-
-    return fs.readFile(filePath, mime.encoding)
-        .then(fileData => ({ fileData, mime }))
-        .catch(err => err)
+    try {
+        const fileData = await fs.readFile(filePath, mime.encoding)
+        return ({ fileData, mime })
+    } catch (err) {
+        return err
+    }
 }
 // resource is return value from read()
 const send = (res, resource) => {
@@ -23,7 +24,6 @@ const send = (res, resource) => {
         "Content-Length": Buffer.byteLength(resource.fileData, resource
             .mime.encoding)
     })
-
     res.end(resource.fileData, resource.mime.encoding)
 }
 
@@ -41,8 +41,8 @@ const sendError = (res, message, code = 404) => {
 }
 
 const isIn = (route, ...routes) => {
-    for (const start of routes) {
-        if (route.startsWith(start)) {
+    for (const i of routes) {
+        if (route.startsWith(i)) {
             return true
         }
     }
@@ -50,6 +50,6 @@ const isIn = (route, ...routes) => {
     return false
 }
 
-module.exports = { read, send, sendJson, isIn }
+module.exports = { read, send, sendJson, isIn, sendError }
 
 

@@ -24,14 +24,14 @@
         "encoding": "binary"
     },
     ".jpeg": {
-        "type": "imgage/jpeg",
+        "type": "image/jpeg",
         "encoding": "binary"
     },
     ".gif": {
         "type": "image/gif",
         "encoding": "binary"
     },
-    ".icon": {
+    ".ico": {
         "type": "image/vdn.microsoft.icon",
         "encoding": "binary"
     }
