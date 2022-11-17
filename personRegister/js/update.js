@@ -29,7 +29,6 @@
             const uri = key ? `/persons/${key}?value=${searchValue}` : '/persons'
             const result = await fetch(uri)
             const personData = await result.json()
-            console.log(personData)
             updatePage(personData)
         } catch (error) {
             showError(error)
