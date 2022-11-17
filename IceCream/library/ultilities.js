@@ -16,7 +16,18 @@ const read = (filePath) => {
         .then(fileData => ({ fileData, mime }))
         .catch(err => err)
 }
+// resource is return value from read()
+const send = (res, resource) => {
+    res.writeHead(200, {
+        "Content-Type": resource.mime.type,
+        "Content-Length": Buffer.byteLength(resource.fileData, resource
+            .mime.encoding)
+    })
 
-module.exports = { read }
+    res.end(resource.fileData, resource.mime.encoding)
+}
+
+
+module.exports = { read, send }
 
 
