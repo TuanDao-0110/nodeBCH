@@ -5,15 +5,15 @@ const { sendFile } = require('./library/utilities')
 const { search } = require("./storage/personsDataLayer")
 require('dotenv').config()
 
-const port = process.env.PORT
-const host = process.env.HOST
+const port = process.env.PORT || 4000
+const host = process.env.HOST || 'localhost'
 const homePath = path.join(__dirname, 'home.html')
 http.createServer(
     (req, res) => {
         const { pathname, searchParams } = new URL(`http://${req.headers.host}${req.url}`)
+        console.log(pathname)
         const route = decodeURIComponent(pathname)
-        console.log(path.join(__dirname, route))
-        console.log(route.startsWith('/styles/'))
+            console.log(route)
         if (route === '/') {
             sendFile(res, homePath)
         }

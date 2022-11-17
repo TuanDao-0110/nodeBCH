@@ -11,18 +11,25 @@
     function init() {
         resultset = document.getElementById('resultset')
         resultsection = document.getElementById('resultsection')
+        messageare = document.getElementById('messageare')
         keyInput = document.getElementById('key')
         searchValueInput = document.getElementById('searchvalue')
         document.getElementById('submit').addEventListener('click', submit)
     }
+
     // have data from input 
     async function submit() {
+        
+        messageare.innerHTML = ''
+        resultset.innerHTML = ''
+
         const key = keyInput.value;
         const searchValue = searchValueInput.value
         try {
             const uri = key ? `/persons/${key}?value=${searchValue}` : '/persons'
             const result = await fetch(uri)
             const personData = await result.json()
+            console.log(personData)
             updatePage(personData)
         } catch (error) {
             showError(error)
@@ -50,7 +57,7 @@
                 <td>${person.age}</td>
                 </tr>`
             }
-          return resultset.innerHTML = htmlString
+            return resultset.innerHTML = htmlString
         }
     }
 })()
