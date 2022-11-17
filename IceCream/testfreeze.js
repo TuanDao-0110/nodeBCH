@@ -9,3 +9,15 @@ const { getAllFlavor, getIceCream, hasFlavor } = require('./iceScreamStorage/ice
 
 // try with allPromise
 Promise.all([getAllFlavor(), getIceCream('vanila')]).then(res => console.log(res))
+
+async function test() {
+    try {
+        const result = await getIceCream('vanila')
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+test()

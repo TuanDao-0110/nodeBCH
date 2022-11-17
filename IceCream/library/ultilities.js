@@ -27,7 +27,29 @@ const send = (res, resource) => {
     res.end(resource.fileData, resource.mime.encoding)
 }
 
+// JsonResource get from iceCreamfreezer
+const sendJson = (res, jsonResource) => {
+    const jsonData = JSON.stringify(jsonResource)
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(jsonData)
+}
 
-module.exports = { read, send }
+
+const sendError = (res, message, code = 404) => {
+    res.writeHead(code, { "Content-Type": "application/json" })
+    res.end(JSON.stringify({ message }))
+}
+
+const isIn = (route, ...routes) => {
+    for (const start of routes) {
+        if (route.startsWith(start)) {
+            return true
+        }
+    }
+
+    return false
+}
+
+module.exports = { read, send, sendJson, isIn }
 
 
