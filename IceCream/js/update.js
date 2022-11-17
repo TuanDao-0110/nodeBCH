@@ -5,6 +5,7 @@
 let iceCreamList;
 let resultarea;
 document.addEventListener('DOMContentLoaded', init)
+// render all data 
 async function init() {
     iceCreamList = document.getElementById('iceCreamList');
     resultarea = document.getElementById('resultarea')
@@ -16,7 +17,7 @@ async function init() {
         console.log(error)
     }
 }
-
+// render all data function
 function populateIcecreamlist(gueryResult) {
     for (const flavor of gueryResult) {
         const option = document.createElement('option')
@@ -27,7 +28,7 @@ function populateIcecreamlist(gueryResult) {
     iceCreamList.addEventListener('change', choose)
     iceCreamList.value = ''
 }
-
+// get each icecream
 async function choose() {
     const iceCreamFlavor = iceCreamList.value;
     if (iceCreamFlavor.length > 0) {
@@ -35,6 +36,7 @@ async function choose() {
             const data = await fetch(`/icecreams/${iceCreamFlavor}`)
             const result = await data.json()
             updateResult(result)
+
         } catch (error) {
             console.log(error)
             showErrorMsg(error.message)
@@ -43,6 +45,7 @@ async function choose() {
         //  clearresult
     }
 }
+// render each icecream
 function updateResult(data) {
     if (!data) {
         //error
@@ -71,11 +74,11 @@ function updateResult(data) {
         resultarea.innerHTML = htmlString
     }
 }
-
+// clear result
 function clearResultArea() {
     resultarea.innerHTML = ''
 }
-
+// error message
 
 function showErrorMsg(message) {
     resultarea.innerHTML = `
