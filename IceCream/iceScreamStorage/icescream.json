@@ -1,0 +1,22 @@
+{
+    "vanila"  :{
+        "name" : "vanila",
+        "price" : 2,
+        "image" : "vanila.png"
+    },
+    "strawberry": {
+        "name": "strawberry",
+        "price": 2.5,
+        "image": "strawberry.png"
+    },
+    "chocolate": {
+        "name": "chocolate",
+        "price": 3,
+        "image": "chocolate.png"
+    },
+    "berry": {
+        "name": "berry",
+        "price": 4,
+        "image": "berry.png"
+    }
+}
