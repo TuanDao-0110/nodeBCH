@@ -39,4 +39,10 @@ installs all dependencies that are listed in package.json
 ```shell 
 npx license-checker --summary 
 ``` 
+## App npm : 
+
+express.js
+ejs.co
+
+
 
