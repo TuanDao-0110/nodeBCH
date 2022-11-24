@@ -3,7 +3,6 @@ const app = express()
 const path = require('path')
 require('dotenv').config()
 const { port, host } = require('./config.json')
-// so use static to allow express to access public --> that now can allow home.html with link css is style/styles.css will be active
 // set up view engin 
 app.set('view engine', 'ejs')
 // where to set the pages

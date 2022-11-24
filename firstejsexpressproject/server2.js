@@ -15,7 +15,47 @@ const users = {
     jesse: '333',
     tuan: 'tuan'
 }
+
+const cars = [
+    {
+        "model": "A",
+        "license": "123",
+        "year": 1991
+    },
+    {
+        "model": "b",
+        "license": "123",
+        "year": 1943
+    },
+    {
+        "model": "C",
+        "license": "989",
+        "year": 1232
+    },
+    {
+        "model": "D",
+        "license": "4353",
+        "year": 3002
+    },
+    {
+        "model": "C",
+        "license": "888",
+        "year": 2000
+    },
+    {
+        "model": "E",
+        "license": "888",
+        "year": 2000
+    },
+    {
+        "model": "D",
+        "license": "888",
+        "year": 2000
+    }
+]
 const homePath = path.join(__dirname, 'home.html')
+app.use(express.static(path.join(__dirname, 'public')))
+
 
 
 app.get('/', (req, res, next) => {
@@ -35,6 +75,13 @@ app.post('/login', express.urlencoded({ extended: false }), (req, res) => {
 
 app.get('/users', (req, res) => {
     res.status(200).render('users', { title: 'username', header1: 'names', usernames: Object.keys(users) })
+})
+app.get('/cars', (req, res) => {
+    res.status(200).render('cars', { title: 'car table', cars })
+})
+app.get('/carsif', (req, res) => {
+    res.status(200).render('tableif', { title: 'car table if', cars:[] })
+    
 })
 app.listen(port, host, () => {
     console.log(`listening at port ${port}`)
