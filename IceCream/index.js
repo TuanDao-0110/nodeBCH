@@ -25,7 +25,6 @@ const server = http.createServer(async (req, res) => {
             const result = await read(homePath)
             send(res, result)
         }
-
         else if (isIn(route, ...resourceRoutes)) {
             const result = await read(path.join(__dirname, route))
             send(res, result)
@@ -40,7 +39,6 @@ const server = http.createServer(async (req, res) => {
                 const iceCreamFlavor = pathParts[2]
                 // console.log(iceCreamFlavor)
                 if (await hasFlavor(iceCreamFlavor)) {
-
                     const iceCream = await getIceCream(iceCreamFlavor)
                     sendJson(res, iceCream)
                 }

@@ -43,10 +43,10 @@ const sendError = (res, message, code = 404) => {
 const isIn = (route, ...routes) => {
     for (const i of routes) {
         if (route.startsWith(i)) {
+            console.log(i)
             return true
         }
     }
-
     return false
 }
 
