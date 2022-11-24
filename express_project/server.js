@@ -10,6 +10,7 @@ const localhost = process.env.LOCALHOST || 'localhost'
 app.use(express.static('./public'))
 const homePath = path.join(__dirname, 'home.html')
 const pageBPath = path.join(__dirname, 'pageB.html')
+
 app.use(json())
 
 
