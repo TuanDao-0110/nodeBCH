@@ -38,7 +38,6 @@ async function choose() {
             updateResult(result)
 
         } catch (error) {
-            console.log(error)
             showErrorMsg(error.message)
         }
     } else {
