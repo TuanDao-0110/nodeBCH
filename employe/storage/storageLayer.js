@@ -1,13 +1,14 @@
 'use strict'
 
 const path = require('path')
-const { storageFile } = require('./storageConfig.json')
+const { storageFile ,adapterFile} = require('./storageConfig.json')
 // get writestorage , read storage
 const { writeStorage, readStorage } = require('./rederWriter')
 // join the filePath to locate our file 
 const storageFilePath = path.join(__dirname, storageFile)
+const {adapt} = require(path.join(__dirname,adapterFile))
 
-
+// get all employee
 const getAllFromStorage = async () => {
     try {
         const data = await readStorage(storageFilePath)
@@ -18,7 +19,7 @@ const getAllFromStorage = async () => {
         return []
     }
 }
-
+// get date base on id
 const getFromStorage = async (id) => {
     try {
         const data = await readStorage(storageFilePath)
@@ -32,7 +33,7 @@ const getFromStorage = async (id) => {
 
 }
 
-
+// add new employee to data base
 const addToStorage = async (newEmployee) => {
     try {
         const data = await readStorage(storageFilePath)
