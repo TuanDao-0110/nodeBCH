@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const { storageFile, adapterFile } = require('./storageConfig.json')
+const { key, storageFile, adapterFile, books } = require('./storageConfig.json')
 // get writestorage , read storage
 const { writeStorage, readStorage } = require('./rederWriter')
 // join the filePath to locate our file 
@@ -25,9 +25,9 @@ const getFromStorage = async (id) => {
     try {
         const data = await readStorage(storageFilePath)
         if (data) {
-            let result = data.find(item => item.id === id)
+            let result = data.find(item => item[key] === id)
             return result
-        }
+        } return 'no id found'
     } catch (error) {
 
     }
@@ -40,8 +40,8 @@ const addToStorage = async (newEmployee) => {
         const data = await readStorage(storageFilePath)
         if (data) {
             data.push(adapt(newEmployee))
-        }
-        return await writeStorage(storageFilePath, data)
+            return await writeStorage(storageFilePath, data)
+        } return 'can not update'
     } catch (error) {
         console.log(error)
         return ''
@@ -55,7 +55,7 @@ const updateStorage = async (updatedEmployee) => {
         // get data
         if (data) {
             // find object with matching ID
-            const oldObject = data.find(item => item.id === updatedEmployee.id)
+            const oldObject = data.find(item => item[key] === updatedEmployee.id)
             if (oldObject) {
                 // if found Object now changed it
                 Object.assign(oldObject, adapt(updatedEmployee))
@@ -73,7 +73,7 @@ const removeFromStorage = async (id) => {
     try {
         const data = await readStorage(storageFilePath)
         if (data) {
-            const i = data.findIndex(item => item.id === id)
+            const i = data.findIndex(item => item[key] === id)
             if (i < 0) {
                 return false
             }

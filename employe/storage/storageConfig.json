@@ -1,4 +1,5 @@
 {
     "storageFile": "employee.json",
+    "key": "id",
     "adapterFile": "employeeAdapter.js"
 }
