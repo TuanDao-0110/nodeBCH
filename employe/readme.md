@@ -44,14 +44,57 @@ id is uinique.
 
 #### readerWriter.js
 
--readStorage()
+-readStorage(storageFile)
   -returns an array of employees / []
 
-- writeStorage(data)
+- writeStorage(storageFil,data)
   -returns true/false
 
-#### storageLayer.js 
+#### storageLayer.js
+
 - getAllFromStorage()
   - returns an array of employees / []
 - getFromStorage(id)
   - returns an employee object / null
+- addToStorage(newEmployee)
+  - returns true / false
+- updateStorage(updatedEmployee)
+  - returns true / false
+- removeFromStorage(id)
+  - returns true / false
+
+#### statusCodes.js
+
+```
+js
+
+const CODES = {
+  PROGRAM_ERROR:0,
+  NOT_FOUND:1,
+  INSERT_OK:2,
+  ...
+}
+```
+
+The format of an status/error message is :
+
+```js
+const MESSAGES = {
+  PROGRAM_ERROR: () => ({
+    message: "Sorry! Error in our program",
+    code: CODES.PROGRAM_ERROR,
+    type: "error",
+  }),
+  NOT_FOUND: (id) => ({
+    message: `No employee found with id ${id}`,
+    code: CODES.NOT_FOUND,
+    type: "error",
+  }),
+  INSERT_OK: (id) => ({
+    message: `Employee ${id} was inserted`,
+    code: CODES.INSERT_OK,
+    type: "info",
+  }),
+};
+```
+status type are `error` or `info` 
