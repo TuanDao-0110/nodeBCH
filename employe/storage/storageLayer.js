@@ -4,6 +4,7 @@ const path = require('path')
 const { storageFile, adapterFile } = require('./storageConfig.json')
 // get writestorage , read storage
 const { writeStorage, readStorage } = require('./rederWriter')
+const { error } = require('console')
 // join the filePath to locate our file 
 const storageFilePath = path.join(__dirname, storageFile)
 // add adapter
@@ -49,4 +50,43 @@ const addToStorage = async (newEmployee) => {
 }
 
 
+const updateStorage = async (updatedEmployee) => {
+    try {
+        const data = await readStorage(storageFilePath)
+        // get data
+        if (data) {
+            // find object with matching ID
+            const oldObject = data.find(item => item.id === updatedEmployee.id)
+            if (oldObject) {
+                // if found Object now changed it
+                Object.assign(oldObject, adapt(updatedEmployee))
+                return await writeStorage(storageFile, data)
+            } return false
+        }
+    } catch (error) {
+        console.log(error)
+        return 'not thing work'
+    }
+}
 
+
+const removeFromStorage = async (id) => {
+    try {
+        const data = await readStorage(storageFilePath)
+        if (data) {
+            const i = data.findIndex(item => item.id === id)
+            if (i < 0) {
+                return false
+            }
+            else {
+                data.splice(i, 1)
+                return await writeStorage(storageFilePath, data)
+            }
+        }
+    } catch (error) {
+        console.log(error)
+        return ''
+    }
+}
+
+removeFromStorage(100)

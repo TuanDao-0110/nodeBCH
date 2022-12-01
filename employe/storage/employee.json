@@ -8,20 +8,13 @@
     },
     {
         "id": 2,
-        "firstname": "matt",
-        "lastname": "joe",
-        "department": "ict",
-        "salary": 3000
-    },
-    {
-        "id": 3,
-        "firstname": "new name",
+        "firstname": "new changed",
         "lastname": "last name",
         "department": "it",
         "salary": 4000
     },
     {
-        "id": 10,
+        "id": 20,
         "firstname": "new name",
         "lastname": "last name",
         "department": "it",
