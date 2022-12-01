@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>all employees</title>
+  </head>
+  <body>
+    <main>
+      <h2>all employee</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>employee id</th>
+            <th>first name</th>
+            <th>department</th>
+            <th>salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%result.forEach(person=> { %>
+          <tr>
+            <td><%= person.id %></td>
+            <td><%= person.firstname %></td>
+            <td><%= person.lastname %></td>
+            <td><%= person.department %></td>
+            <td><%= person.salary %></td>
+          </tr>
+          <%}) %>
+        </tbody>
+        <a href="/">home</a>
+      </table>
+    </main>
+  </body>
+</html>
