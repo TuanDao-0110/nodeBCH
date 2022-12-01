@@ -1,19 +1,5 @@
 [
     {
-        "id": 1,
-        "firstname": "leila",
-        "lastname": "ok",
-        "department": "ict",
-        "salary": 4000
-    },
-    {
-        "id": 2,
-        "firstname": "new changed",
-        "lastname": "last name",
-        "department": "it",
-        "salary": 4000
-    },
-    {
         "id": 20,
         "firstname": "new name",
         "lastname": "last name",
@@ -21,8 +7,15 @@
         "salary": 4000
     },
     {
-        "id": 100,
-        "firstname": "new changed",
+        "id": 15,
+        "firstname": "new name",
+        "lastname": "last name",
+        "department": "it",
+        "salary": 4000
+    },
+    {
+        "id": 1,
+        "firstname": "new name",
         "lastname": "last name",
         "department": "it",
         "salary": 4000
