@@ -12,5 +12,12 @@
         "lastname": "joe",
         "department": "ict",
         "salary": 3000
+    },
+    {
+        "id": 3,
+        "firstname": "new name",
+        "lastname": "last name",
+        "department": "it",
+        "salary": 4000
     }
 ]

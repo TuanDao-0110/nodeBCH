@@ -12,11 +12,39 @@ const getAllFromStorage = async () => {
     try {
         const data = await readStorage(storageFilePath)
         // read all file from employee.json
-        console.log(data)
         return data
     } catch (error) {
         console.log(error)
         return []
     }
 }
-getAllFromStorage()
+
+const getFromStorage = async (id) => {
+    try {
+        const data = await readStorage(storageFilePath)
+        if (data) {
+            let result = data.find(item => item.id === id)
+            return result
+        }
+    } catch (error) {
+
+    }
+
+}
+
+
+const addToStorage = async (newEmployee) => {
+    try {
+        const data = await readStorage(storageFilePath)
+        if (data) {
+            data.push(newEmployee)
+        }
+        return await writeStorage(storageFilePath, data)
+    } catch (error) {
+        console.log(error)
+        return ''
+    }
+}
+
+
+
