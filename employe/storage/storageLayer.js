@@ -4,7 +4,6 @@ const path = require('path')
 const { storageFile, adapterFile } = require('./storageConfig.json')
 // get writestorage , read storage
 const { writeStorage, readStorage } = require('./rederWriter')
-const { error } = require('console')
 // join the filePath to locate our file 
 const storageFilePath = path.join(__dirname, storageFile)
 // add adapter
@@ -89,4 +88,5 @@ const removeFromStorage = async (id) => {
     }
 }
 
-removeFromStorage(100)
+
+module.exports = { removeFromStorage, updateStorage, addToStorage, getAllFromStorage, getFromStorage }
