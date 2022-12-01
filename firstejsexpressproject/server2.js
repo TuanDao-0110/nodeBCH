@@ -62,16 +62,18 @@ app.get('/', (req, res, next) => {
     res.status(200).sendFile(homePath)
 })
 // 
-app.post('/login', express.urlencoded({ extended: false }), (req, res) => {
-    const { username, password } = req.body
-    // check data first that make sure the exist in our database
-    if (Object.keys(users).includes(username) && users[username] === password) {
-        return res.status(200).render('result', { title: "data", header1: 'your data', data: { username, password } })
-    }
-    return res.status(401).render('error', { username })
+app.post('/login',
+    express.urlencoded({ extended: false }),
+    (req, res) => {
+        const { username, password } = req.body
+        // check data first that make sure the exist in our database
+        if (Object.keys(users).includes(username) && users[username] === password) {
+            return res.status(200).render('result', { title: "data", header1: 'your data', data: { username, password } })
+        }
+        return res.status(401).render('error', { username })
 
 
-})
+    })
 
 app.get('/users', (req, res) => {
     res.status(200).render('users', { title: 'username', header1: 'names', usernames: Object.keys(users) })
@@ -80,8 +82,8 @@ app.get('/cars', (req, res) => {
     res.status(200).render('cars', { title: 'car table', cars })
 })
 app.get('/carsif', (req, res) => {
-    res.status(200).render('tableif', { title: 'car table if', cars:[] })
-    
+    res.status(200).render('tableif', { title: 'car table if', cars: [] })
+
 })
 app.listen(port, host, () => {
     console.log(`listening at port ${port}`)
