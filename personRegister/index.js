@@ -3,21 +3,20 @@ const http = require('http')
 const path = require('path')
 const { sendFile } = require('./library/utilities')
 const { search } = require("./storage/personsDataLayer")
-require('dotenv').config()
+// require('dotenv').config()
 
 const port = process.env.PORT || 4000
 const host = process.env.HOST || 'localhost'
 const homePath = path.join(__dirname, 'home.html')
+// console.log(homePath)
 http.createServer(
     (req, res) => {
         const { pathname, searchParams } = new URL(`http://${req.headers.host}${req.url}`)
-        console.log(pathname)
         const route = decodeURIComponent(pathname)
-            console.log(route)
+        console.log(path.join(__dirname,route))
         if (route === '/') {
             sendFile(res, homePath)
         }
-
         else if (route.startsWith('/page/')) {
             sendFile(res, path.join(__dirname, route), 'text/css')
         }

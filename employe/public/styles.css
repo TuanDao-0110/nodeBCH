@@ -1,0 +1,19 @@
+*{ 
+  text-transform: capitalize;
+}
+
+h1 {
+    color: red;
+}
+table { 
+    margin-top: 1rem;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+.insert { 
+  display: flex;
+  flex-direction: column;
+}
