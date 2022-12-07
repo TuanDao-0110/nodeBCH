@@ -20,6 +20,7 @@ const writeStorage = async (storageFile, data) => {
             // replace old version by w
             flag: 'w'
         })
+        return true
     } catch (error) {
         console.log(error)// for debug
         return false

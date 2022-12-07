@@ -3,8 +3,8 @@
 
 const adapt = async (item) => {
     return Object.assign(item, {
-        id: +item.id,
-        salary: +item.salary
+        id: item.id,
+        salary: item.salary
     })
     
 }

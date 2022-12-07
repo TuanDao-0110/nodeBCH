@@ -27,6 +27,15 @@
         </tr>
       </tbody>
     </table>
+
+    <h1>edit person</h1>
+    <form class="insert" action="/edit" method="get">
+      <% for(let i in data) { %>
+      <label for= <%= i %> > <%= i %></label>
+      <input value=<%= data[i] %> id=<%= i %> name=<%= i %> />
+      <% } %>
+      <button type="submit" id="submit">edit</button>
+    </form>
     <a href="/">home</a>
     <a href="getPerson"> get person</a>
     <a href="getall">get all</a>

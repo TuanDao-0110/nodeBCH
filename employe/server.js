@@ -34,18 +34,27 @@ app.get('/userid', (req, res, next) => {
 
 })
 app.get('/insert_employee', (req, res, next) => {
-    console.log(req.body)
     res.status(200).render('insert', {})
 })
 app.post('/add_employee', (req, res, next) => {
     const { id, firstname, lastname, department, salary } = req.body
     let numberId = Number(id)
-    let newEmployee = { id: numberId, firstname, lastname, department, salary }
+    let numberSalary = Number(salary)
+    let newEmployee = { id: numberId, firstname, lastname, department, salary: numberSalary }
     newData.insert(newEmployee).then(data => {
         res.status(200).json({ msg: 'ok', data })
     }).catch(err => res.status(401).json({ err }))
 })
 
+
+
+app.get('/edit', (req, res, next) => {
+    const { id, firstname, lastname, department, salary } = req.query
+    let numberId = Number(id)
+    let numberSalary = Number(salary)
+    let employee = { id: numberId, firstname, lastname, department, salary: numberSalary }
+    newData.update(employee).then(data => res.status(200).json({ data })).catch(data => res.status(401).json({ data }))
+})
 app.listen(port, host, () => {
     console.log(`listening at port ${port}...`)
 })
