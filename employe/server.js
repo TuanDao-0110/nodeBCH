@@ -55,6 +55,7 @@ app.get('/edit', (req, res, next) => {
     let employee = { id: numberId, firstname, lastname, department, salary: numberSalary }
     newData.update(employee).then(data => res.status(200).json({ data })).catch(data => res.status(401).json({ data }))
 })
+
 app.listen(port, host, () => {
     console.log(`listening at port ${port}...`)
 })

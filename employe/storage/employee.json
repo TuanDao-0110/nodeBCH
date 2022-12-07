@@ -15,9 +15,9 @@
     },
     {
         "id": 1,
-        "firstname": "long ",
+        "firstname": "long",
         "lastname": "short",
-        "department": "it",
+        "department": "teacher",
         "salary": 3000
     },
     {

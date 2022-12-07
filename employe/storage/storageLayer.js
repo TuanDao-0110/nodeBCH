@@ -59,7 +59,7 @@ const updateStorage = async (updatedEmployee) => {
             if (oldObject) {
                 // if found Object now changed it
                 Object.assign(oldObject, adapt(updatedEmployee))
-                return await writeStorage(storageFile, data)
+                return await writeStorage(storageFilePath, data)
             } return false
         }
     } catch (error) {
