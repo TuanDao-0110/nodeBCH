@@ -9,16 +9,19 @@
   </head>
   <body>
     <h1>insert new employee</h1>
-    <form action="getall" method="post" class="insert">
+    <form action="/add_employee" method="post" class="insert" id="form">
       <label for="id">id</label>
-      <input type="text" name="id" id="id" />
+      <input type="number" name="id" id="id" />
         <label for="firstname">firstname</label>
         <input type="text" name="firstname" id="firstname">
         <label for="lastname">last name</label>
         <input type="lastname" id="lastname" name="lastname">
         <label for="department">department</label>
         <input type="department" id="department" name="department">
-        
+        <label for="salary">salary</label>
+        <input type="number" name="salary" id="salary">
+        <button type="submit" id="submit">add new employee</button>
     </form>
+    <a href="/">home</a>
   </body>
 </html>

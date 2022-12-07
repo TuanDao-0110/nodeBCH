@@ -33,10 +33,18 @@ app.get('/userid', (req, res, next) => {
     newData.getOne(Number(id)).then(data => res.status(200).render('personDetails', { title: 'person details', data })).catch(data => res.status(401).json({ data }))
 
 })
-app.get('/insert_employee',(req,res,next)=> { 
-res.status(200).render('insert',{})
+app.get('/insert_employee', (req, res, next) => {
+    console.log(req.body)
+    res.status(200).render('insert', {})
 })
-
+app.post('/add_employee', (req, res, next) => {
+    const { id, firstname, lastname, department, salary } = req.body
+    let numberId = Number(id)
+    let newEmployee = { id: numberId, firstname, lastname, department, salary }
+    newData.insert(newEmployee).then(data => {
+        res.status(200).json({ msg: 'ok', data })
+    }).catch(err => res.status(401).json({ err }))
+})
 
 app.listen(port, host, () => {
     console.log(`listening at port ${port}...`)

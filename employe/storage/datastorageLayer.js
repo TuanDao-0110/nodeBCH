@@ -33,18 +33,19 @@ module.exports = class Datastorage {
     insert(employee) {
         return new Promise(async (res, rej) => {
             if (!employee) {
-                rej(MESSAGES.NOT_INSERTED())
+                return rej(MESSAGES.NOT_INSERTED())
             } else {
                 if (!employee.id) {
-                    rej(MESSAGES.NOT_INSERTED())
+                    return rej(MESSAGES.NOT_INSERTED())
                 } else if (await getFromStorage(employee.id)) {
-                    rej(MESSAGES.ALREADY_IN_USE(employee.id))
+                    return rej(MESSAGES.ALREADY_IN_USE(employee.id))
                 }
                 else if (await addToStorage(employee)) {
-                    res(MESSAGES.INSERT_OK(employee.id))
+                    return res(MESSAGES.INSERT_OK(employee.id))
                 }
                 else {
-                    rej(MESSAGES.NOT_INSERTED())
+                    console.log(employee)
+                    return rej(MESSAGES.NOT_INSERTED())
                 }
 
             }

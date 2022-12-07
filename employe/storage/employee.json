@@ -19,5 +19,26 @@
         "lastname": "short",
         "department": "it",
         "salary": 3000
+    },
+    {
+        "id": 2,
+        "firstname": "dao",
+        "lastname": "tuan",
+        "department": "it",
+        "salary": 6000
+    },
+    {
+        "id": 5,
+        "firstname": "dao",
+        "lastname": "tuan",
+        "department": "t",
+        "salary": 5000
+    },
+    {
+        "id": 3,
+        "firstname": "chau",
+        "lastname": "tan",
+        "department": "it",
+        "salary": 1000000
     }
 ]
