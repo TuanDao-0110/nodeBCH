@@ -1,12 +1,5 @@
 [
     {
-        "id": 20,
-        "firstname": "new name",
-        "lastname": "last name",
-        "department": "it",
-        "salary": 4000
-    },
-    {
         "id": 15,
         "firstname": "new name",
         "lastname": "last name",
@@ -14,10 +7,45 @@
         "salary": 4000
     },
     {
-        "id": 1,
-        "firstname": "new name",
-        "lastname": "last name",
+        "id": 4,
+        "firstname": "tuan",
+        "lastname": "dao",
+        "department": "tad",
+        "salary": 535035
+    },
+    {
+        "id": 20,
+        "firstname": "tuan",
+        "lastname": "long",
         "department": "it",
-        "salary": 4000
+        "salary": 9999999
+    },
+    {
+        "id": 44,
+        "firstname": "dao",
+        "lastname": "cha",
+        "department": "it",
+        "salary": 42424
+    },
+    {
+        "id": 100,
+        "firstname": "dao",
+        "lastname": "cha",
+        "department": "it",
+        "salary": 42424
+    },
+    {
+        "id": 14,
+        "firstname": "tuan",
+        "lastname": "dao",
+        "department": "chau",
+        "salary": 42842
+    },
+    {
+        "id": 24,
+        "firstname": "tuan",
+        "lastname": "dao",
+        "department": "tester",
+        "salary": 9000000
     }
 ]

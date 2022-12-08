@@ -3,11 +3,11 @@
 
 const adapt = (item) => {
     return {
-        id: +item.id,
+        id: Number(item.id),
         firstname: item.firstname,
         lastname: item.lastname,
         department: item.department,
-        salary: +item.salary // also Number(item.salary)
+        salary: Number(item.salary) // also Number(item.salary)
     }
 }
 

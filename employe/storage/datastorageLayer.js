@@ -19,13 +19,13 @@ module.exports = class Datastorage {
         return new Promise(async (res, rej) => {
             // check it exist
             if (!id) {
-                rej(MESSAGES.NOT_FOUND('----empty----'))
+                return rej(MESSAGES.NOT_FOUND('----empty----'))
             } else {
                 const result = await getFromStorage(id)
                 if (result) {
-                    res(result)
+                    return res(result)
                 } else {
-                    rej(MESSAGES.NOT_FOUND(id))
+                    return rej(MESSAGES.NOT_FOUND(id))
                 }
             }
         })
@@ -33,18 +33,15 @@ module.exports = class Datastorage {
     insert(employee) {
         return new Promise(async (res, rej) => {
             if (!employee) {
-                rej(MESSAGES.NOT_INSERTED())
+                return rej(MESSAGES.NOT_INSERTED())
             } else {
-                if (!employee.id) {
-                    rej(MESSAGES.NOT_INSERTED())
-                } else if (await getFromStorage(employee.id)) {
-                    rej(MESSAGES.ALREADY_IN_USE(employee.id))
+                if (await getFromStorage(employee.id)) {
+                    return rej(MESSAGES.ALREADY_IN_USE(employee.id))
                 }
                 else if (await addToStorage(employee)) {
-                    res(MESSAGES.INSERT_OK(employee.id))
-                }
-                else {
-                    rej(MESSAGES.NOT_INSERTED())
+                    return res(MESSAGES.INSERT_OK(employee.id))
+                } else {
+                    return rej(MESSAGES.NOT_INSERTED())
                 }
 
             }
@@ -53,12 +50,12 @@ module.exports = class Datastorage {
     update(employee) {
         return new Promise(async (res, rej) => {
             if (!employee) {
-                rej(MESSAGES.NOT_UPDATED())
+                return rej(MESSAGES.NOT_UPDATED())
             } else {
                 if (await updateStorage(employee)) {
-                    res(MESSAGES.UPDATE_OK(employee))
+                    return res(MESSAGES.UPDATE_OK(employee.id))
                 } else {
-                    rej(MESSAGES.NOT_UPDATED())
+                    return rej(MESSAGES.NOT_UPDATED())
                 }
             }
         })
@@ -66,14 +63,14 @@ module.exports = class Datastorage {
     remove(id) {
         return new Promise(async (res, rej) => {
             if (!id) {
-                rej(MESSAGES.NOT_FOUND('---empty---'))
+                return rej(MESSAGES.NOT_FOUND('---empty---'))
             } else {
                 if (await removeFromStorage(id)) {
 
-                    res(MESSAGES.REMOVE_OK(id))
+                    return res(MESSAGES.REMOVE_OK(id))
                 }
                 else {
-                    rej(MESSAGES.NOT_REMOVED(id))
+                    return rej(MESSAGES.NOT_REMOVED(id))
                 }
             }
         })

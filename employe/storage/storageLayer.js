@@ -27,9 +27,9 @@ const getFromStorage = async (id) => {
         if (data) {
             let result = data.find(item => item[key] === id)
             return result
-        } return 'no id found'
+        } return false
     } catch (error) {
-
+        return true
     }
 
 }
@@ -40,8 +40,11 @@ const addToStorage = async (newEmployee) => {
         const data = await readStorage(storageFilePath)
         if (data) {
             data.push(adapt(newEmployee))
-            return await writeStorage(storageFilePath, data)
-        } return 'can not update'
+            await writeStorage(storageFilePath, data)
+            return true
+        } else {
+            return false
+        }
     } catch (error) {
         console.log(error)
         return ''
@@ -59,8 +62,9 @@ const updateStorage = async (updatedEmployee) => {
             if (oldObject) {
                 // if found Object now changed it
                 Object.assign(oldObject, adapt(updatedEmployee))
-                return await writeStorage(storageFile, data)
-            } return false
+                await writeStorage(storageFilePath, data)
+                return true
+            } else { return false }
         }
     } catch (error) {
         console.log(error)
@@ -79,8 +83,11 @@ const removeFromStorage = async (id) => {
             }
             else {
                 data.splice(i, 1)
-                return await writeStorage(storageFilePath, data)
+                await writeStorage(storageFilePath, data)
+                return true
             }
+        } else {
+            return false
         }
     } catch (error) {
         console.log(error)

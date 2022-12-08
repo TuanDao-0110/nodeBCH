@@ -64,6 +64,65 @@ app.get('/inputform', (req, res, next) => {
     })
 })
 
+app.post('/input', (req, res, next) => {
+    if (!req.body) return res.statusCode(500)
+    const { id, department, lastname, firstname, salary } = req.body
+    const numberId = Number(id)
+    const numberSalary = Number(salary)
+    let employee = { id: numberId, department, lastname, firstname, salary: numberSalary }
+
+    newData.insert(employee).then(status => sendStatusPage(res, status)).catch(error => sendErrorPage(res, error))
+
+})
+app.get('/updateform', (req, res, next) => {
+    res.render('form', {
+        title: 'update person',
+        header1: 'update a new person',
+        action: '/updatedata',
+        id: { value: '', readonly: '' },
+        firstname: { value: '', readonly: 'readonly' },
+        lastname: { value: '', readonly: 'readonly' },
+        department: { value: '', readonly: 'readonly' },
+        salary: { value: '', readonly: 'readonly' },
+    })
+})
+app.post('/updatedata', (req, res) => {
+
+    if (!req.body) return res.sendStatus(500)
+    newData.getOne(Number(req.body.id))
+        .then(employee =>
+            res.render('form', {
+                title: 'update person',
+                header1: 'update a new person',
+                action: '/update',
+                id: { value: employee.id, readonly: 'readonly' },
+                firstname: { value: employee.firstname, readonly: '' },
+                lastname: { value: employee.lastname, readonly: '' },
+                department: { value: employee.department, readonly: '' },
+                salary: { value: employee.salary, readonly: '' },
+            })
+        )
+        .catch(error => sendErrorPage(res, error))
+})
+app.post('/update', (req, res) => {
+    const { id, department, lastname, firstname, salary } = req.body
+    const numberId = Number(id)
+    const numberSalary = Number(salary)
+    let employee = { id: numberId, department, lastname, firstname, salary: numberSalary }
+    newData.update(employee).then(status => sendStatusPage(res, status)).catch(error => sendErrorPage(res, error))
+})
+
+app.get('/removePerson', (req, res, next) => {
+    res.status(200).render('getPerson', { title: 'remove person', header1: 'remove header', action: '/removePerson' })
+})
+app.post('/removePerson', (req, res, next) => {
+    if (!req.body) return res.statusCode(500)
+    const { id } = req.body
+    let numberId = Number(id)
+    newData.remove(numberId).then(result =>
+        sendStatusPage(res, result)
+    ).catch(result => sendErrorPage(res, result))
+})
 app.listen(port, host, () => {
     console.log(`listening at port ${port}...`)
 })
