@@ -25,7 +25,7 @@ app.get('/getall', (req, res, next) => {
     ).catch(err => res.send('error'))
 })
 app.get('/getbook', (req, res, next) => {
-    res.render('getbook', { title: 'get book', action: '/getbook' })
+    res.render('getbook', { title: 'get book', action: '/getbook', method: 'post' })
 })
 app.post('/getbook', (req, res, next) => {
     const { bookID } = req.body
@@ -37,10 +37,31 @@ app.get('/insertbook', (req, res, next) => {
     res.render('insertbook', { title: 'insert book', action: '/insertbook', })
 })
 app.post('/insertbook', (req, res) => {
-    console.log(req.body)
     newData.insertBook(req.body).then(data =>
         res.json({ data })
     ).catch(err => res.send(err))
+})
+app.get('/findbook', (req, res) => {
+    res.render('getbook', { title: 'findbook', action: '/editbook', method: 'get' })
+})
+app.get('/editbook', (req, res) => {
+    const { bookID } = req.query
+    newData.getBook(Number(bookID)).then(result =>
+        res.render('editbook', { result, title: 'edit book', action: '/editbook', method: 'post' })
+    ).catch(err => res.send(err))
+})
+app.post('/editbook', (req, res) => {
+    newData.editBook(req.body).then(data =>
+        res.json({ data })
+    ).catch(err => res.json({ err }))
+})
+app.get('/deletebook', (req, res) => {
+    res.render('getbook', { title: 'delete book', action: '/deletebook', method: 'post' })
+})
+app.post('/deletebook', (req, res) => {
+    const { bookID } = req.body
+    newData.deleteBook(bookID).then(result => res.json({ result })).catch(err => res.json([err]))
+
 })
 app.listen(port, host, () => {
     console.log(`listening on port ${port}...`)

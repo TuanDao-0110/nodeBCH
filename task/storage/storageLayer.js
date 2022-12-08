@@ -44,13 +44,15 @@ const insertBook = async (newBook) => {
 }
 
 const updateBook = async (bookUpdate) => {
+    const newBook = adapt(bookUpdate)
     try {
         const data = await readStorage(storagePath)
-        const oldBook = data.find(book => book[key] === bookUpdate[key])
+        const oldBook = data.find(book => book[key] === newBook[key])
+        console.log(oldBook)
         if (oldBook === undefined) {
             return false
         } else {
-            Object.assign(oldBook, adapt(bookUpdate))
+            Object.assign(oldBook, newBook)
             await writeStorage(storagePath, data)
             return true
         }
@@ -68,8 +70,7 @@ const deleteBook = async (bookID) => {
             return false
         } else {
             data.splice(index, 1)
-            console.log(data)
-            // await writeStorage(storagePath, data)
+            await writeStorage(storagePath, data)
             return true
         }
     } catch (error) {

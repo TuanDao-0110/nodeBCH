@@ -12,12 +12,5 @@
         "author": "Layla Jones",
         "type": "softcover",
         "pages": 350
-    },
-    {
-        "bookID": 1,
-        "name": "tuan",
-        "author": "dao",
-        "type": "42",
-        "pages": 424
     }
 ]

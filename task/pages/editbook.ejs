@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form action="<%= action %>" method="<%= method %>">
+      <div>
+        <label for="bookID">book ID </label>
+        <input type="number" name="bookID" id="bookID" required value="<%= result.bookID %>"/>
+      </div>
+      <div>
+        <label for="name">name </label>
+        <input type="text" name="name" id="name" required value="<%= result.name %>"/>
+      </div>
+      <div>
+        <label for="author">author </label>
+        <input type="text" name="author" id="author" required value="<%= result.author %>"/>
+      </div>
+      <div>
+        <label for="type">type</label>
+        <input type="text" name="type" id="type" required value="<%= result.type %>" />
+      </div>
+      <div>
+        <label for="pages">pages </label>
+        <input type="number" name="pages" id="pages" required value="<%= result.pages %>"/>
+      </div>
+      <button type="submit">submit</button>
+    </form>
+    <a href="/findbook">
+        <button>find book</button>
+    </a>
+</body>
+</html>
