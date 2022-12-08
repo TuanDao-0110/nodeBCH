@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const { key, storageFile, adapterFile, books } = require('./storageConfig.json')
+const { key, storageFile, adapterFile,  } = require('./storageConfig.json')
 // get writestorage , read storage
 const { writeStorage, readStorage } = require('./rederWriter')
 // join the filePath to locate our file 
