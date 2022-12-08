@@ -15,13 +15,12 @@ const getAll = async () => {
 const getBook = async (bookID) => {
     try {
         const data = await readStorage(storagePath)
-        console.log(data.find(book => book[key] === bookID))
         if (data.find(book => book[key] === bookID) !== undefined) {
             return data.find(book => book[key] === bookID)
         }
         return false
     } catch (error) {
-        console.log(error)
+        return false
     }
 }
 const insertBook = async (newBook) => {
@@ -48,7 +47,6 @@ const updateBook = async (bookUpdate) => {
     try {
         const data = await readStorage(storagePath)
         const oldBook = data.find(book => book[key] === newBook[key])
-        console.log(oldBook)
         if (oldBook === undefined) {
             return false
         } else {
