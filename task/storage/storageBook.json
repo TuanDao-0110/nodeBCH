@@ -1,16 +1,23 @@
 [
     {
-        "bookID": 3,
-        "name": "Maria and My",
-        "author": "Jesse River",
-        "type": "pocketbook",
-        "pages": 150
-    },
-    {
         "bookID": 7,
         "name": "Databases - The rise and fall",
         "author": "Layla Jones",
         "type": "softcover",
         "pages": 350
+    },
+    {
+        "bookID": 2,
+        "name": "dao",
+        "author": "jay",
+        "type": "it",
+        "pages": 599
+    },
+    {
+        "bookID": 5,
+        "name": "chau",
+        "author": "long",
+        "type": "434",
+        "pages": 500
     }
 ]
