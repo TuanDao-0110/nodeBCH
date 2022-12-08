@@ -27,9 +27,9 @@ const getFromStorage = async (id) => {
         if (data) {
             let result = data.find(item => item[key] === id)
             return result
-        } return 'no id found'
+        } return null
     } catch (error) {
-
+        return error
     }
 
 }

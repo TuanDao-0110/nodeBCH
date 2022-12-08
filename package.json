@@ -2,9 +2,10 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.mjs"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/TuanDao-0110/nodeBCH#readme",
   "dependencies": {
+    "chalk": "^5.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
