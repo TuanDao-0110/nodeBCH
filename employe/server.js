@@ -48,7 +48,20 @@ app.post('/getPerson', (req, res, next) => {
         res.status(200).render('personPage',
             { title: 'get user ', header: 'get user', action: '/getPerson', result }
         )
-    ).catch(result => sendErrorPage(res,result))
+    ).catch(result => sendErrorPage(res, result))
+})
+
+app.get('/inputform', (req, res, next) => {
+    res.render('form', {
+        title: 'add person',
+        header1: 'add a new person',
+        action: '/input',
+        id: { value: '', readonly: '' },
+        firstname: { value: '', readonly: '' },
+        lastname: { value: '', readonly: '' },
+        department: { value: '', readonly: '' },
+        salary: { value: '', readonly: '' },
+    })
 })
 
 app.listen(port, host, () => {
