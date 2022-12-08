@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>get all</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <table>
+      <tr>
+        <th>book ID</th>
+        <th>name</th>
+        <th>author</th>
+        <th>type</th>
+        <th>page</th>
+      </tr>
+      <% data.forEach(item => { %>
+      <tr>
+        <td><%= item.bookID %></td>
+        <td><%= item.name %></td>
+        <td><%= item.author %></td>
+        <td><%= item.type %></td>
+        <td><%= item.pages %></td>
+      </tr>
+      <% }) %>
+    </table>
+
+        <a href="/">
+            <button>Home</button>
+        </a>
+  </body>
+</html>

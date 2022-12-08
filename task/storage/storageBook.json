@@ -15,51 +15,9 @@
     },
     {
         "bookID": 1,
-        "name": "Rebellion of Sophie Q.Lister",
-        "author": "Isla Shore",
-        "type": "print - on - demand",
-        "pages": 200
-    },
-    {
-        "bookID": 6,
-        "name": "SQL-mysteries",
-        "author": "Felix Harris",
-        "type": "e-book",
-        "pages": 250
-    },
-    {
-        "bookID": 2,
-        "name": "The adventures of Mike the Millipede",
-        "author": "Matt Wilson",
-        "type": "hardcover",
-        "pages": 500
-    },
-    {
-        "bookID": 4,
-        "name": "Hacking databases",
-        "author": "Antony Lee",
-        "type": "magazine",
-        "pages": 3420
-    },
-    {
-        "bookID": 5,
-        "name": "Rebellion of Sophie Q. Lister",
-        "author": "Isla Shore",
-        "type": "print-on-demand",
-        "pages": 100
-    },
-    {
-        "bookID": 22,
-        "name": "Rebellion of Sophie Q.Lister",
-        "author": "Isla Shore",
-        "type": "print - on - demand",
-        "pages": 100
-    },
-    {
-        "bookID": 10,
-        "name": "Rebellion of Sophie Q.Lister",
-        "author": "Isla Shore",
-        "type": "print - on - demand",
-        "pages": 200
+        "name": "tuan",
+        "author": "dao",
+        "type": "42",
+        "pages": 424
     }
 ]

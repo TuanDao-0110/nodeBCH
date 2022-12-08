@@ -2,7 +2,7 @@ const tuanDaoBook = require('./storageBook.json')
 const { readStorage, writeStorage } = require('./rederWrite')
 const { storageFile, key, adapterFile } = require('./storgeConfig.json')
 const path = require('path')
-const { adapt } = require('./adapt')
+const adapt = require("./adapt")
 const storagePath = path.join(__dirname, storageFile)
 const getAll = async () => {
     try {
@@ -15,7 +15,8 @@ const getAll = async () => {
 const getBook = async (bookID) => {
     try {
         const data = await readStorage(storagePath)
-        if (data) {
+        console.log(data.find(book => book[key] === bookID))
+        if (data.find(book => book[key] === bookID) !== undefined) {
             return data.find(book => book[key] === bookID)
         }
         return false
@@ -24,10 +25,11 @@ const getBook = async (bookID) => {
     }
 }
 const insertBook = async (newBook) => {
+    let insertBook = adapt(newBook)
     try {
         const data = await readStorage(storagePath)
-        if (data.find(book => book[key] === newBook[key]) === undefined) {
-            data.push(newBook)
+        if (data.find(book => book[key] === insertBook[key]) === undefined) {
+            data.push(insertBook)
             await writeStorage(storagePath, data)
             return true
         }

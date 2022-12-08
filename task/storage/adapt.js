@@ -11,4 +11,4 @@ const adapt = (item) => {
     return book
 }
 
-module.exports = { adapt }
+module.exports =  adapt 
