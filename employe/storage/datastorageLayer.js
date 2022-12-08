@@ -67,10 +67,14 @@ module.exports = class Datastorage {
         return new Promise(async (res, rej) => {
             if (!id) {
                 rej(MESSAGES.NOT_FOUND('---empty---'))
-            } else if (await removeFromStorage(id)) {
-                res(MESSAGES.REMOVE_OK(id))
             } else {
-                rej(MESSAGES.NOT_REMOVED(id))
+                if (await removeFromStorage(id)) {
+
+                    res(MESSAGES.REMOVE_OK(id))
+                }
+                else {
+                    rej(MESSAGES.NOT_REMOVED(id))
+                }
             }
         })
     }
