@@ -7,13 +7,6 @@
         "salary": 4000
     },
     {
-        "id": 4,
-        "firstname": "tuan",
-        "lastname": "dao",
-        "department": "tad",
-        "salary": 535035
-    },
-    {
         "id": 20,
         "firstname": "tuan",
         "lastname": "long",
@@ -47,5 +40,12 @@
         "lastname": "dao",
         "department": "tester",
         "salary": 9000000
+    },
+    {
+        "id": 5,
+        "firstname": "tuan",
+        "lastname": "new tuan",
+        "department": "it",
+        "salary": 70000
     }
 ]
